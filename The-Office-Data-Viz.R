@@ -45,3 +45,9 @@ ggplot(data = rating_per_season) +
 #Line:
 ggplot(data = rating_per_season) +
   geom_line(mapping = aes(x = Season, y = avg_rating))
+
+#both:
+ggplot(data = rating_per_season) +
+  geom_line(mapping = aes(x = Season, y = avg_rating)) +
+  geom_point(mapping = aes(x = Season, y = avg_rating)) +
+  geom_smooth(mapping = aes(x = Season, y = avg_rating))
