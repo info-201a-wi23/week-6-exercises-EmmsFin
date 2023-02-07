@@ -42,12 +42,14 @@ ggplot(data = rating_per_season) +
 
 ```{r, echo=FALSE}
 # Find the highest IMDB rating for any episode of The Office and pull the value
-highest_rating <- highest_rating_rows <- office_df %>%
-  filter(Rating == max(Rating, na.rm = TRUE))
+highest_rating <- office_df %>%
+  summarise(highest_rating = max(Rating, na.rm = TRUE)) %>%
+  pull(highest_rating)
 
 # Find the lowest IMDB rating for any episode of The Office and pull the value
-lowest_rating <- lowest_rating_rows <- office_df %>%
-  filter(Rating == min(Rating, na.rm = TRUE))
+lowest_rating <- office_df %>%
+  summarise(lowest_rating = min(Rating, na.rm = TRUE)) %>%
+  pull(lowest_rating)
 ```
 
 The highest IMDB rating for any episode of The Office is `r highest_rating`, and the lowest rating is `r lowest_rating`.
